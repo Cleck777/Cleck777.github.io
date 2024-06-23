@@ -1,7 +1,7 @@
 var store = [{
-        "title": "first - post",
-        "excerpt":"Testing   header  ","categories": ["testing"],
-        "tags": ["testing"],
-        "url": "/testing/test/",
-        "teaser": "/assets/images/logo.png"
+        "title": "Reverse agent with Rasberry Pie",
+        "excerpt":"Testing   header  ","categories": ["pentesting, tools"],
+        "tags": ["pentesting, ethical hacking, tools"],
+        "url": "/pentesting,%20tools/test/",
+        "teaser": "/assets/images/evilpi.png"
       }]
