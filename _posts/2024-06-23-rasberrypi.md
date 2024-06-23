@@ -9,7 +9,7 @@ header:
   teaser_home_page: true
   icon: "/assets/images/rasberrypi.png"
 categories:
-  - pentesting, tools
+  - pentesting
 tags:
   - pentesting, ethical hacking, tools
 ---
