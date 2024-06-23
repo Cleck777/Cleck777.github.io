@@ -12,20 +12,20 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Cleck777"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Cleck"
+description              : "Pentester, CTF Player"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/logo.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -42,9 +42,9 @@ comments:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : "dark"
   utterances:
-    theme                : # "github-light" (default), "github-dark"
+    theme                : "github-dark"
     issue_term           : # "pathname" (default)
   giscus:
     repo_id              : # Shown during giscus setup at https://giscus.app
@@ -52,7 +52,7 @@ comments:
     category_id          : # Shown during giscus setup at https://giscus.app
     discussion_term      : # "pathname" (default), "url", "title", "og:title"
     reactions_enabled    : # '1' for enabled (default), '0' for disabled
-    theme                : # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+    theme                : "dark" #"dark_dimmed", "transparent_dark", "preferred_color_scheme"
     strict               : # 1 for enabled, 0 for disabled (default)
     input_position       : # "top", "bottom" # The comment input box will be placed above or below the comments
     emit_metadata        : # 1 for enabled, 0 for disabled (default) # https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#imetadatamessage
@@ -112,10 +112,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  name             : "CLECK"
+  avatar           : "/assets/images/penguin.png"
+  bio              : "Pentester, CTF Player"
+  location         : "US"
   email            :
   links:
     - label: "Email"
