@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-23T22:16:23-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">Evilpi</title><link href="/EvilPI/" rel="alternate" type="text/html" title="Evilpi" /><published>2024-06-23T00:00:00-04:00</published><updated>2024-06-23T00:00:00-04:00</updated><id>/EvilPI</id><content type="html" xml:base="/EvilPI/"><![CDATA[<hr />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-23T22:19:11-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">Evilpi</title><link href="/EvilPI/" rel="alternate" type="text/html" title="Evilpi" /><published>2024-06-23T00:00:00-04:00</published><updated>2024-06-23T00:00:00-04:00</updated><id>/EvilPI</id><content type="html" xml:base="/EvilPI/"><![CDATA[<hr />
 <p>layout: single
 title: EvilPI: Using a Rasberry PI as a an agent into an internal network
 excerpt: “I thought it might be a neat little project to get a lightweight tool like this one running on a Raspberry Pi. We can then route through a cloud instance and use our at-home Kali machine.”
@@ -7,7 +7,6 @@ classes: wide
 header:
   teaser: /assets/images/evilpi.png
   teaser_home_page: true
-  icon: 
 categories:</p>
 <ul>
   <li>pentesting
@@ -47,4 +46,4 @@ https://github.com/nicocha30/ligolo-ng/releases/tag/v0.6.1</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.1/ligolo-ng_agent_0.6.1_linux_armv7.tar.gz
 $ tar xf ./ligolo-ng_agent_0.6.1_linux_armv7.tar.gz
 $ chmod +x agent
-</code></pre></div></div>]]></content><author><name>CLECK</name></author><summary type="html"><![CDATA[layout: single title: EvilPI: Using a Rasberry PI as a an agent into an internal network excerpt: “I thought it might be a neat little project to get a lightweight tool like this one running on a Raspberry Pi. We can then route through a cloud instance and use our at-home Kali machine.” date: 2024-06-23 classes: wide header: teaser: /assets/images/evilpi.png teaser_home_page: true icon: categories: pentesting tags: pentesting ethical hacking tools]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>CLECK</name></author><summary type="html"><![CDATA[layout: single title: EvilPI: Using a Rasberry PI as a an agent into an internal network excerpt: “I thought it might be a neat little project to get a lightweight tool like this one running on a Raspberry Pi. We can then route through a cloud instance and use our at-home Kali machine.” date: 2024-06-23 classes: wide header: teaser: /assets/images/evilpi.png teaser_home_page: true categories: pentesting tags: pentesting ethical hacking tools]]></summary></entry></feed>
