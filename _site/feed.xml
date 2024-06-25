@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-25T00:13:00-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">EvilPI: Using a Rasberry PI as a an agent into an internal network</title><link href="/pentesting/EvilPI/" rel="alternate" type="text/html" title="EvilPI: Using a Rasberry PI as a an agent into an internal network" /><published>2024-06-23T00:00:00-04:00</published><updated>2024-06-23T00:00:00-04:00</updated><id>/pentesting/EvilPI</id><content type="html" xml:base="/pentesting/EvilPI/"><![CDATA[<p><img src="/assets/images/evilpi.png#center" alt="" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-25T13:21:40-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">EvilPI: Using a Raspberry Pi as an Agent into an Internal Network</title><link href="/pentesting/EvilPI/" rel="alternate" type="text/html" title="EvilPI: Using a Raspberry Pi as an Agent into an Internal Network" /><published>2024-06-24T00:00:00-04:00</published><updated>2024-06-24T00:00:00-04:00</updated><id>/pentesting/EvilPI</id><content type="html" xml:base="/pentesting/EvilPI/"><![CDATA[<p><img src="/assets/images/evilpi.png#center" alt="" /></p>
+
+<h2 id="background">Background</h2>
+
+<p>While doing some of the Pro-labs for HTB, I recently discovered <a href="https://github.com/Nicocha30/ligolo-ng">ligolo-ng</a>.</p>
+
+<blockquote>
+  <p><strong>Ligolo-ng</strong> is a <em>simple</em>, <em>lightweight</em>, and <em>fast</em> tool that allows pentesters to establish tunnels from a reverse TCP/TLS connection using a <strong>tun interface</strong> (without the need for SOCKS).</p>
+</blockquote>
+
+<p>The program is really cool and easy to use. It allows you to tunnel into the infected device similar to a VPN. This allows attackers to get around tools like ProxyChains and can help speed up tools like Nmap.</p>
+
+<p>I thought it might be a neat little project to get a lightweight tool like this one running on a Raspberry Pi. We can then route through a cloud instance and use our at-home Kali machine.</p>
+
+<p>This would be useful if you needed to put a machine on an internal network for pentesting.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>In this project, I will be using a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (4GB) running Debian and a Linode container.</p>
+
+<p>Ligolo-ng is built using an agent and a proxy. For the Raspberry Pi, you will want to pick up a copy of the agent:
+https://github.com/nicocha30/ligolo-ng/releases/tag/v0.6.1</p>
+
+<h2 id="testing-on-pi">Testing on Pi</h2>
+
+<p>I’m going to pick up a copy for my Pi by running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.1/ligolo-ng_agent_0.6.1_linux_armv7.tar.gz
+$ tar xf ./ligolo-ng_agent_0.6.1_linux_armv7.tar.gz
+$ chmod +x agent
+</code></pre></div></div>
+
+<p>We now have to download the proxy with the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.1/ligolo-ng_proxy_0.6.1_linux_amd64.tar.gz
+$ tar xf ./ligolo-ng_proxy_0.6.1_linux_amd64.tar.gz
+</code></pre></div></div>
+
+<p>To start my proxy server I will run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./proxy -selfcert
+</code></pre></div></div>
+
+<p>To test my Pi’s connection back to my PC I will run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./agent -connect 192.168.254.147:11601 -ignore-cert 
+</code></pre></div></div>
+
+<p>We can now see the connection made by the Pi:</p>
+
+<p><img src="/assets/images/prxysession.png" alt="" /></p>
+
+<h2 id="using-the-cloud">Using the Cloud</h2>
+
+<p>Since our attacker machine will sit behind a firewall, we need a way to ensure that the agent can route to a cloud instance.</p>
+
+<p><img src="/assets/images/SSH%20Tunnel.png" alt="" /></p>
+
+<p>To make it easy and secure, we are going to route the Ligolo-ng through an SSH tunnel.</p>
+
+<h3 id="raspberry-pi">Raspberry Pi:</h3>
+
+<p>I created a script that will automatically create this service for you. You can find it at:
+https://github.com/Cleck777/PI-Ligolo-ng-Service-Starter</p>
+
+<p>The main component of this script is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ autossh -M 20000 -N -T -L 11601:127.0.0.1:11601 {SSH_USER}@{HOSTNAME} -i {IDENTITY_FILE}
+</code></pre></div></div>
+
+<p>This will forward your local port (default: 11601) to the remote server.</p>
+
+<p>You can now start the agent:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ /usr/bin/agent -connect localhost:11601 -ignore-cert
+</code></pre></div></div>
+
+<h3 id="attacker-machine">Attacker Machine</h3>
+
+<p>First, you have to start a remote port forward to your local ligolo-ng proxy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ssh -R 11601:127.0.0.1:11601 {SSH_USER}@{HOSTNAME} -i {IDENTITY_FILE}
+</code></pre></div></div>
+
+<p>You can now start the proxy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ./proxy -selfcert
+</code></pre></div></div>
+
+<p><img src="/assets/images/Ligoloconnection.png" alt="" /></p>
+
+<p>As we can see, we get a connection from our Raspberry Pi.</p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">session</code> and choose your session.</p>
+
+<p>Now we need to create our interface:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo ip tuntap add user [your_username] mode tun ligolo
+ $ sudo ip link set ligolo up
+</code></pre></div></div>
+
+<p>We can now set up our route as normal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ip route add 192.168.0.0/24 dev ligolo
+</code></pre></div></div>
+
+<p>You can now start your agent by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ [Agent : root@raspberrypi] » start
+</code></pre></div></div>
+
+<p>And you’re good to go!</p>]]></content><author><name>CLECK</name></author><category term="pentesting" /><category term="pentesting" /><category term="ethical hacking" /><category term="tools" /><summary type="html"><![CDATA[Ever thought of using a Raspberry Pi as an agent for pentesting within an internal network? In this project, we explore how to set up a lightweight tool called Ligolo-ng on a Raspberry Pi. By routing through a cloud instance, you can leverage your at-home Kali machine for effective penetration testing. This guide walks you through the steps of setting up the agent and proxy, establishing secure SSH tunnels, and configuring your devices for seamless connectivity. Perfect for anyone looking to expand their pentesting toolkit with a cost-effective and portable solution.]]></summary></entry><entry><title type="html">EvilPI: Using a Rasberry PI as a an Agent into an Internal Network</title><link href="/pentesting/EvilPI/" rel="alternate" type="text/html" title="EvilPI: Using a Rasberry PI as a an Agent into an Internal Network" /><published>2024-06-23T00:00:00-04:00</published><updated>2024-06-23T00:00:00-04:00</updated><id>/pentesting/EvilPI</id><content type="html" xml:base="/pentesting/EvilPI/"><![CDATA[<p><img src="/assets/images/evilpi.png#center" alt="" /></p>
 
 <h2 id="background">Background</h2>
 
