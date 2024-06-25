@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Pentesting"
-    url: /pentesting/
+    url: /categories/#pentesting
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
