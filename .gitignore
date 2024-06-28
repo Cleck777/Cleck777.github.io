@@ -1,0 +1,40 @@
+# Ignore bundler config
+.bundle
+
+# Ignore the directory where gems are installed
+vendor/bundle
+
+# Ignore RubyMine project files
+.idea
+
+# Ignore log files and temp files
+*.log
+tmp/
+log/
+
+# Ignore byebug command history file.
+.byebug_history
+
+# Ignore coverage directory for Ruby's SimpleCov
+coverage/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules if you are using Node.js with Ruby
+node_modules/
+
+# Ignore dotenv environment variables file
+.env
+
+# Ignore macOS-specific files
+*.swp
+*~
+*.swo
+
+# Ignore editor-specific files
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
