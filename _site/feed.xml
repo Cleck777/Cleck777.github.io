@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-07-10T00:37:54-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">UART Basics: Getting a shell via UART (Netgear WNR1000v3)</title><link href="/iot/IOTUart/" rel="alternate" type="text/html" title="UART Basics: Getting a shell via UART (Netgear WNR1000v3)" /><published>2024-07-09T00:00:00-04:00</published><updated>2024-07-09T00:00:00-04:00</updated><id>/iot/IOTUart</id><content type="html" xml:base="/iot/IOTUart/"><![CDATA[<p><img src="/assets/images/router.png#center" alt="" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-07-10T00:40:31-04:00</updated><id>/feed.xml</id><title type="html">Cleck</title><subtitle>Pentester, CTF Player</subtitle><author><name>CLECK</name></author><entry><title type="html">UART Basics: Getting a shell via UART (Netgear WNR1000v3)</title><link href="/iot/IOTUart/" rel="alternate" type="text/html" title="UART Basics: Getting a shell via UART (Netgear WNR1000v3)" /><published>2024-07-09T00:00:00-04:00</published><updated>2024-07-09T00:00:00-04:00</updated><id>/iot/IOTUart</id><content type="html" xml:base="/iot/IOTUart/"><![CDATA[<p><img src="/assets/images/router.png#center" alt="" /></p>
 
 <h2 id="overview">Overview</h2>
 
@@ -193,8 +193,10 @@ media
 lib
 etc
 dev
-bin We get a shell!
+bin
 </code></pre></div></div>
+
+<p>We get a shell!</p>
 
 <p>References:</p>
 <ul>
