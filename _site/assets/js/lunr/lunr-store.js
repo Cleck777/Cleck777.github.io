@@ -1,6 +1,6 @@
 var store = [{
         "title": "Breaking into Windows: Attempting to bypass EDR with Sliver",
-        "excerpt":"   Background   Coming Soon…  ","categories": ["pentesting"],
+        "excerpt":"Background Sliver C2 is a pretty awesome alternative to metasploit developed by Bishop Fox: Sliver is an open source cross-platform adversary emulation/red team framework, it can be used by organizations of all sizes to perform security testing. Sliver’s implants support C2 over Mutual TLS (mTLS), WireGuard, HTTP(S), and DNS and...","categories": ["pentesting"],
         "tags": ["pentesting","Bypass EDR","tools"],
         "url": "/pentesting/SlivervsWindows/",
         "teaser": "/assets/images/BrokenWindows.png"
@@ -10,4 +10,10 @@ var store = [{
         "tags": ["pentesting","ethical hacking","tools"],
         "url": "/pentesting/EvilPI/",
         "teaser": "/assets/images/evilpi.png"
+      },{
+        "title": "UART Basics: Getting a shell via UART (Netgear WNR1000v3)",
+        "excerpt":"Overview Ever wonder what’s under the hood of many of your IoT devices? It’s probably some form of Linux! In this article, I will show you how to get a shell within a router using a Bus Pirate and a UART connection. For this demonstration, I will be using the...","categories": ["IOT"],
+        "tags": ["IOT","IOT hacking","Embeded Systems"],
+        "url": "/iot/IOTUart/",
+        "teaser": "/assets/images/router.png"
       }]
