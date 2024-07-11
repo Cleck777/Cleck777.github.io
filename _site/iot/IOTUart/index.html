@@ -322,25 +322,25 @@
 
 <p>Ever wonder what’s under the hood of many of your IoT devices? It’s probably some form of Linux! In this article, I will show you how to get a shell within a router using a Bus Pirate and a UART connection. For this demonstration, I will be using the Netgear WNR1000v3.</p>
 
-<p><strong><em>Disclaimer - If done improperly, it is VERY easy to brick your device. Connecting over UART can also void your waranty.</em></strong></p>
+<p><strong><em>Disclaimer - If done improperly, it is VERY easy to brick your device. Connecting over UART can also void your warranty.</em></strong></p>
 
 <p><img src="/assets/images/netgearWNR1000v3.png" alt="" /></p>
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>To get started, you will need a way to communicate over UART, there are several ways of doing this but I will be using the Bus Pirate from Dangerous Prototypes:</p>
+<p>To get started, you will need a way to communicate over UART. There are several ways of doing this, but I will be using the Bus Pirate from Dangerous Prototypes:</p>
 
 <blockquote>
   <p>“The Bus Pirate is an open source hacker multi-tool that talks to electronic stuff. It’s got a bunch of features an intrepid hacker might need to prototype their next project” - http://dangerousprototypes.com/docs/Bus_Pirate</p>
 </blockquote>
 
-<p>You can pick one up from sparkfun for around $32: https://www.sparkfun.com/products/12942</p>
+<p>You can pick one up from SparkFun for around $32: https://www.sparkfun.com/products/12942</p>
 
 <h2 id="overview-of-the-board">Overview of the board</h2>
 <p><img src="/assets/images/netgear/netgearWNR1000v3/1.png" alt="" /></p>
 
 <h3 id="front">Front</h3>
-<p>On the front of the board we can see:</p>
+<p>On the front of the board, we can see:</p>
 <ul>
   <li>Broadcom BCM5356A1 CPU</li>
   <li>SDRAM</li>
@@ -357,16 +357,16 @@
 </ul>
 
 <h2 id="uart-connection">UART Connection</h2>
-<p>UART has three components that allows it to communicate:</p>
+<p>UART has three components that allow it to communicate:</p>
 
 <h3 id="tx-transmit">TX (Transmit)</h3>
 <p>Is responsible for transmitting the data and is connected to the RX pin.</p>
 <h3 id="rx-receive">RX (Receive)</h3>
 <p>Is responsible for Receiving the data and is connected to the TX pin.</p>
 <h3 id="gnd-ground">GND (Ground)</h3>
-<p>Provides a common reference voltage level for both the transmitting and receiving devices</p>
+<p>Provides a common reference voltage level for both the transmitting and receiving devices.</p>
 
-<p>Sometimes, we have to figure out where each of these pins are located within the header but thankfully OPENWRT has done this for us:</p>
+<p>Sometimes, we have to figure out where each of these pins are located within the header, but thankfully OPENWRT has done this for us:</p>
 <blockquote>
   <p>“Attach 3,3V Serial UART Adapter to J3 on the PCB. Pin 6=GND, Pin 2=RXD, Pin 5=TXD. J3 Connector is not soldered in by default. Standard UART speed 115200 Baud. “ - https://openwrt.org/toh/netgear/wnr1000_v3</p>
 </blockquote>
@@ -374,7 +374,7 @@
 <p>We can see this below: 
 <img src="/assets/images/netgear/netgearWNR1000v3/3.png" alt="" /></p>
 
-<p>To connect our Bus Pirate, like mentioned earlier, we have to remember that the TX (Transmit) is connected to the RX (Receive) as shown below:</p>
+<p>To connect our Bus Pirate, as mentioned earlier, we have to remember that the TX (Transmit) is connected to the RX (Receive), as shown below:</p>
 
 <p><img src="/assets/images/TX_RX.png#center" alt="" /></p>
 
@@ -398,7 +398,7 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HiZ&gt;
 </code></pre></div></div>
 
-<p>We can now now type w to get the list of menu options:</p>
+<p>We can now now type ‘w’ to get the list of menu options:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HiZ&gt;m
 1. HiZ
@@ -413,7 +413,7 @@
 x. exit(without change)
 </code></pre></div></div>
 
-<p>we are going to type 3 for UART</p>
+<p>we are going to type ‘3’ for UART</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1)&gt;3
 Set serial port speed: (bps)
@@ -429,7 +429,7 @@ Set serial port speed: (bps)
 10. BRG raw value
 </code></pre></div></div>
 
-<p>We are going to choose 9 for 115200 bps</p>
+<p>We are going to choose ‘9’ for 115200 bps</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1)&gt;9
 Data bits and parity:
@@ -440,7 +440,7 @@ Data bits and parity:
 (1)&gt;
 </code></pre></div></div>
 
-<p>1 for default</p>
+<p>‘1’ for default</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1)&gt;1
 Stop bits:
@@ -449,7 +449,7 @@ Stop bits:
 (1)&gt;
 </code></pre></div></div>
 
-<p>1 for default</p>
+<p>‘1’ for default</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1)&gt;1
 Receive polarity:
@@ -458,7 +458,7 @@ Receive polarity:
 (1)&gt;
 </code></pre></div></div>
 
-<p>1 for default</p>
+<p>‘1’ for default</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(1)&gt;1
 Select output type:
@@ -466,7 +466,7 @@ Select output type:
 2. Normal (H=3.3V, L=GND)
 </code></pre></div></div>
 
-<p>2 for normal</p>
+<p>‘2’ for normal</p>
 
 <p>We should now be presented with the following:</p>
 
@@ -492,7 +492,7 @@ Reset to exit
 Are you sure? y
 </code></pre></div></div>
 
-<p>and…..</p>
+<p>And…..</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BusyBox v0.60.0 (2014.02.27-07:07+0000) Built-in shell (msh)
 Enter 'help' for a list of built-in commands.
